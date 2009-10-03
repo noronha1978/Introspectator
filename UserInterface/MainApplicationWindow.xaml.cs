@@ -17,9 +17,9 @@ namespace Introspectator.UserInterface
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class MainApplicationWindow : Window
     {
-        public Window1()
+        public MainApplicationWindow()
         {
             InitializeComponent();
         }
