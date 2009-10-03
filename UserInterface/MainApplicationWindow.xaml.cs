@@ -26,7 +26,9 @@ namespace Introspectator.UserInterface
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            MenuItem openMenu = new MenuItem();
+            openMenu.Name = "Open";
+            mainMenu.Items.Add(openMenu);
         }
     }
 }
