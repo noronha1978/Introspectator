@@ -83,6 +83,7 @@ namespace xTestApplicationLogic.CLRTests
             Assert.IsTrue(t.Length >= 0);
         }
 
+        
         public void TestLoadingAllMethodsInAllTypesFromAssembly()
         {
             Type[] t = assembly.GetTypes();
@@ -93,7 +94,7 @@ namespace xTestApplicationLogic.CLRTests
             IList<LocalVariableInfo> listLocal = mb.LocalVariables;
             Type typ = listLocal[0].LocalType;
 
-            
+            //methods[0].
 
             //typ.
         }

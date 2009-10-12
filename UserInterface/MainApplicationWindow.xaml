@@ -3,6 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Main Screen" Height="450" Width="990" Loaded="Window_Loaded" Name="ApplicationWindow">
     <Grid>
-        <Menu Height="22" Margin="0,-9,0,0" Name="mainMenu" VerticalAlignment="Top" />
+        <Menu Height="22" Name="mainMenu" VerticalAlignment="Top" />
     </Grid>
 </Window>

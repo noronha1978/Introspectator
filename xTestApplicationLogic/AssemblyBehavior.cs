@@ -65,24 +65,38 @@ namespace xTestApplicationLogic
         public void GivenAnAssemblyWithNoTypesItsTypeCountShouldBeZero()
         {
             MockRepository mocks = new MockRepository();
-            IAssembly mockAssembly = mocks.DynamicMock<IAssembly>();
+            IAssemblyInfo mockAssembly = mocks.DynamicMock<IAssemblyInfo>();
             IAssemblyLoader loader = mocks.DynamicMock<IAssemblyLoader>();
             loader.Expect(l => l.LoadFrom(null)).IgnoreArguments().Return(mockAssembly);
-            mockAssembly.Expect(a => a.GetAllTypes()).Return(new List<object> { });
+            mockAssembly.Expect(a => a.Types).Return(new List<ITypeInfo> { });
             mocks.ReplayAll();
-
-
-            IAssembly assembly = loader.LoadFrom(@"C:\Location\LocationWhatever.dll");
-            int count = assembly.GetAllTypes().Count;
+            
+            IAssemblyInfo assembly = loader.LoadFrom(@"C:\Location\LocationWhatever.dll");
+            int count = assembly.Types.Count;
 
             mocks.VerifyAll();
             Assert.AreEqual(0, count);
             
         }
 
-
-
         //If a type is associated with another type though a field or property reference then the type is external type dependent 
+        [TestMethod]
+        public void Given_a_type_with_all_private_methods_should_be_able_to_see_it_is_private()
+        {
+            //MockRepository mocks = new MockRepository();
+            //IAssembly assembly = mocks.DynamicMock<IAssembly>();
+            //assembly.Expect<
+        }
+
+
+        [TestMethod]
+        public void Given_a_type_with_all_public_methods_should_be_able_to_see_it_is_public()
+        {
+
+        }
+
+        //[TestMethod]
+        //public vod Given
 
         //If a method within a type through its parameters is assoicated with another type then the type is external type dependent
         

@@ -15,21 +15,13 @@ using System.Windows.Shapes;
 namespace Introspectator.UserInterface
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for DependencyVisualizer.xaml
     /// </summary>
-    public partial class MainApplicationWindow : Window
+    public partial class DependencyVisualizer : UserControl
     {
-        public MainApplicationWindow()
+        public DependencyVisualizer()
         {
             InitializeComponent();
-            
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            MenuItem fileMenu = new MenuItem();
-            fileMenu.Header = "_File";
-            mainMenu.Items.Add(fileMenu);
         }
     }
 }

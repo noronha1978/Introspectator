@@ -7,6 +7,6 @@ namespace Introspectator.ApplicationLogic
 {
     public interface IAssemblyLoader
     {
-        IAssembly LoadFrom(string p);
+        IAssemblyInfo LoadFrom(string p);
     }
 }

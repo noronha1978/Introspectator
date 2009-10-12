@@ -2,11 +2,20 @@
 
 
 Features
-Given a method what are the dependencies in the method
+* I want to see for methods if they are private, protected, public
+
+* Given a method what are the dependencies in the method
 Are they 
 1) method local variables - possible
 2) Parameters - possible
 3) Return types - possible
+
+
+* I want to see for properties if they are private, protectd, public
+
+* I want to see the web of interconnections among types and also should be able to drill down and see the methods and properties that are 
+contributing to the interconnections
+
 
 Given a property what are the dependencies on the property
 
