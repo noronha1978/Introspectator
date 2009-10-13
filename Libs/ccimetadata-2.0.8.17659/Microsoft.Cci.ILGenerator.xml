@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Cci.ILGenerator</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Cci.ILGenerator">
+            <summary>
+            Generates Microsoft intermediate language (MSIL) instructions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.AddLocalToCurrentScope(Microsoft.Cci.ILocalDefinition)">
+            <summary>
+            Adds the given local variable to the current lexical scope.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.AdjustBranchSizesToBestFit">
+            <summary>
+            Performs one or more extra passes over the list of operations, changing long branches to short if possible and short branches to
+            long branches if necessary.
+            </summary>
+            <remarks>If any long branches in this.operations could have been short, they are adjusted to be short. 
+            This can result in an updated version of this.operations where some branches that had to be long in the previous
+            version can now be short as well. Consequently, the adjustment process iterates until no further changes are possible.
+            Note that all decisions are made based on the offsets at the start of an iteration. </remarks>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.BeginCatchBlock(Microsoft.Cci.ITypeReference)">
+            <summary>
+            Begins a catch block.
+            </summary>
+            <param name="exceptionType">The Type object that represents the exception.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.BeginFilterBlock">
+            <summary>
+            Begins an exception block for a filtered exception. See also BeginFilterBody.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.BeginFilterBody">
+            <summary>
+            Begins the part of a filter handler that is invoked on the second pass if the filter condition returns true on the first pass.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.BeginTryBody">
+            <summary>
+            Begins the body of a try statement.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.BeginFaultBlock">
+            <summary>
+             Begins an exception fault block in the Microsoft intermediate language (MSIL) stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.BeginFinallyBlock">
+            <summary>
+            Begins a finally block in the Microsoft intermediate language (MSIL) instruction stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.BeginScope">
+            <summary>
+            Begins a lexical scope.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode)">
+            <summary>
+            Puts the specified instruction onto the stream of instructions.
+            </summary>
+            <param name="opcode">The Intermediate Language (IL) instruction to be put onto the stream.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,System.Byte)">
+            <summary>
+            Puts the specified instruction and unsigned 8 bit integer argument onto the Microsoft intermediate language (MSIL) stream of instructions.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="arg">The unsigned 8 bit integer argument pushed onto the stream immediately after the instruction.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,System.Double)">
+            <summary>
+            Puts the specified instruction and 64 bit floating point argument onto the Microsoft intermediate language (MSIL) stream of instructions.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="arg">The 64 bit floating point argument pushed onto the stream immediately after the instruction.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,Microsoft.Cci.IFieldReference)">
+            <summary>
+            Puts the specified instruction and a field reference onto the Microsoft intermediate language (MSIL) stream of instructions.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="field">A reference to a field.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,System.Single)">
+            <summary>
+            Puts the specified instruction and 32 bit floating point argument onto the Microsoft intermediate language (MSIL) stream of instructions.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="arg">The 32 bit floating point argument pushed onto the stream immediately after the instruction.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,System.Int32)">
+            <summary>
+            Puts the specified instruction and 32 bit integer argument onto the Microsoft intermediate language (MSIL) stream of instructions.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="arg">The 32 bit integer argument pushed onto the stream immediately after the instruction.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,Microsoft.Cci.ILGeneratorLabel)">
+            <summary>
+            Puts the specified instruction onto the Microsoft intermediate language (MSIL) stream and leaves space to include a label when fixes are done.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="label">The label to which to branch from this location.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,Microsoft.Cci.ILGeneratorLabel[])">
+            <summary>
+            Puts the specified instruction onto the Microsoft intermediate language (MSIL) stream and leaves space to include an array of labels when fixes are done.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="labels">An array of labels to which to branch from this location.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,Microsoft.Cci.ILocalDefinition)">
+            <summary>
+            Puts the specified instruction onto the Microsoft intermediate language (MSIL) stream followed by the index of the given local variable.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="local">A local variable.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,System.Int64)">
+            <summary>
+            Puts the specified instruction and 64 bit integer argument onto the Microsoft intermediate language (MSIL) stream of instructions.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="arg">The 64 bit integer argument pushed onto the stream immediately after the instruction.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,Microsoft.Cci.IMethodReference)">
+            <summary>
+            Puts the specified instruction onto the Microsoft intermediate language (MSIL) stream followed by a token for the given method reference.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="meth">A reference to a method. Generic methods can only be referenced via instances.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,Microsoft.Cci.IParameterDefinition)">
+            <summary>
+            Puts the specified instruction onto the Microsoft intermediate language (MSIL) stream followed by the index of the given local variable.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="parameter">A parameter definition.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,System.SByte)">
+            <summary>
+            Puts the specified instruction and signed 8 bit integer argument onto the Microsoft intermediate language (MSIL) stream of instructions.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="arg">The signed 8 bit integer argument pushed onto the stream immediately after the instruction.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,System.Int16)">
+            <summary>
+            Puts the specified instruction and signed 16 bit integer argument onto the Microsoft intermediate language (MSIL) stream of instructions.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="arg">The signed 8 bit integer argument pushed onto the stream immediately after the instruction.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,Microsoft.Cci.ISignature)">
+            <summary>
+            Puts the specified instruction and a token for the given signature onto the Microsoft intermediate language (MSIL) stream of instructions.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="signature">The signature of the method or function pointer to call. Can include information about extra arguments.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,System.String)">
+            <summary>
+            Puts the specified instruction onto the Microsoft intermediate language (MSIL) stream followed by the a token for the given string.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="str">The String to be emitted.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.Emit(Microsoft.Cci.OperationCode,Microsoft.Cci.ITypeReference)">
+            <summary>
+            Puts the specified instruction onto the Microsoft intermediate language (MSIL) stream followed by the a token for the referenced type.
+            </summary>
+            <param name="opcode">The Microsoft intermediate language (MSIL) instruction to be put onto the stream.</param>
+            <param name="cls">The referenced type.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.EndTryBody">
+            <summary>
+            Ends a try body.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.EndScope">
+            <summary>
+            Ends a lexical scope.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.MarkLabel(Microsoft.Cci.ILGeneratorLabel)">
+            <summary>
+             Marks the Microsoft intermediate language (MSIL) stream's current position with the given label.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.MarkSequencePoint(Microsoft.Cci.ILocation)">
+            <summary>
+            Marks a sequence point in the Microsoft intermediate language (MSIL) stream.
+            </summary>
+            <param name="location">The location of the sequence point.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.UseNamespace(System.String)">
+            <summary>
+            Specifies a namespace to be search when evaluating expressions while stopped in the debugger at a sequence point in the current lexical scope.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.GetLocalScopes">
+            <summary>
+            Returns a sequence of all of the block scopes that have been defined for this method body. Includes nested block scopes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.GetOperations">
+            <summary>
+            Returns a sequence of all of the IL operations that make up this method body.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILGenerator.GetOperationExceptionInformation">
+            <summary>
+            Returns a sequence of descriptors that define where try blocks and their associated handlers can be found in the instruction sequence.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILGenerator.CurrentOffset">
+            <summary>
+            The offset in the IL stream where the next instruction will be emitted.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILGenerator.InTryBody">
+            <summary>
+            True if the ILGenerator is currently inside the body of a try statement.
+            </summary>
+        </member>
+    </members>
+</doc>

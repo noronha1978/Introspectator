@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Cci.MutableMetadataModel</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.Cci.MutableCodeModel.TypeDefinitionMember.Dispatch(Microsoft.Cci.IMetadataVisitor)">
+            <summary>
+            Calls the visitor.Visit(T) method where T is the most derived object model node interface type implemented by the concrete type
+            of the object implementing IDoubleDispatcher. The dispatch method does not invoke Dispatch on any child objects. If child traversal
+            is desired, the implementations of the Visit methods should do the subsequent dispatching.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.MutableCodeModel.FieldDefinition.IsBitField">
+            <summary>
+            The field is aligned on a bit boundary and uses only the BitLength number of least significant bits of the representation of a Type value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.MutableCodeModel.TypeDefinition.Dispatch(Microsoft.Cci.IMetadataVisitor)">
+            <summary>
+            Calls the visitor.Visit(T) method where T is the most derived object model node interface type implemented by the concrete type
+            of the object implementing IDoubleDispatcher. The dispatch method does not invoke Dispatch on any child objects. If child traversal
+            is desired, the implementations of the Visit methods should do the subsequent dispatching.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cci.MutableCodeModel.MetadataMutator.cache">
+            <summary>
+            Duplicates are cached, both to save space and to detect when the traversal of a cycle should stop.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cci.MutableCodeModel.MetadataMutator.referenceCache">
+             <summary>
+            Since definitions are also references, it can happen that a definition is visited as both a definition and as a reference.
+            If so, the cache may contain a duplicated definition when a reference is expected, or vice versa.
+            To prevent this, reference duplicates are always cached separately.
+             </summary>
+        </member>
+        <member name="M:Microsoft.Cci.MutableCodeModel.MetadataMutator.Visit(Microsoft.Cci.MutableCodeModel.TypeDefinition)">
+            <summary>
+            Replaces the child nodes of the given mutable type definition with the results of running the mutator over them. 
+            Note that when overriding this method, care must be taken to add the given mutable type definition to this.flatListOfTypes.
+            </summary>
+            <param name="typeDefinition">A mutable type definition.</param>
+        </member>
+        <member name="M:Microsoft.Cci.MutableCodeModel.MetadataMutator.Visit(Microsoft.Cci.IArrayTypeReference)">
+            <summary>
+            Array types are not nominal types, so always visit the reference, even if
+            it is a definition.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.MutableCodeModel.MetadataMutator.Visit(Microsoft.Cci.IPointerTypeReference)">
+            <summary>
+            Pointer types are not nominal types, so always visit the reference, even if
+            it is a definition.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cci.MutableCodeModel.Assembly">
+            <summary>
+            Represents a .NET assembly.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.MutableCodeModel.Assembly.Culture">
+            <summary>
+            Identifies the culture associated with the assembly. Typically specified for sattelite assemblies with localized resources.
+            Empty if not specified.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.MutableCodeModel.Assembly.ExportedTypes">
+            <summary>
+            Public types defined in other modules making up this assembly and to which other assemblies may refer to via this assembly.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.MutableCodeModel.Assembly.Flags">
+            <summary>
+            A set of bits and bit ranges representing properties of the assembly. The value of <see cref="P:Microsoft.Cci.MutableCodeModel.Assembly.Flags"/> can be set
+            from source code via the AssemblyFlags assembly custom attribute. The interpretation of the property depends on the target platform.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.MutableCodeModel.Assembly.ModuleName">
+            <summary>
+            The name of the module containing the assembly manifest. This can be different from the name of the assembly itself.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.MutableCodeModel.Assembly.PublicKey">
+            <summary>
+            The public part of the key used to encrypt the SHA1 hash over the persisted form of this assembly . Empty if not specified.
+            This value is used by the loader to decrypt HashValue which it then compares with a freshly computed hash value to verify the
+            integrity of the assembly.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.MutableCodeModel.Assembly.Version">
+            <summary>
+            The version of the assembly.
+            </summary>
+        </member>
+    </members>
+</doc>
