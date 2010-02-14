@@ -65,6 +65,7 @@ namespace xTestApplicationLogic.CLRTests
         [TestInitialize]
         public void Initialize()
         {
+            //Test To see if this will show up
             string assemblyPath = @"C:\ArunsProjects\Introspectator\zTestSampleAssembly\bin\Debug\Introspectator.zTestSampleAssembly.dll";
             assembly = Assembly.LoadFrom(assemblyPath);
         }
